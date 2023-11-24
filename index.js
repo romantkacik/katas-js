@@ -195,37 +195,68 @@
 //! EJERCICIO 8:
 //* Buscar la palabra más larga. Completa la función que tomando un array de strings como argumento devuelva el más largo, en caso de que dos strings tenga la misma longitud deberá devolver el primero.Puedes usar este array para probar tu función:
 
-const avengers = [
-  'Hulk',
-  'Thor',
-  'IronMan',
-  'Captain A.',
-  'Spiderman',
-  'Captain M.',
-]
-function findLongestWord(param) {
-  let longestWord = ''
-  for (let i = 0; i < param.length; i++) {
-    if (param[i].length > longestWord.length) {
-      longestWord = param[i]
-    }
-  }
-  return longestWord
-}
-console.log(findLongestWord(avengers))
+// const avengers = [
+//   'Hulk',
+//   'Thor',
+//   'IronMan',
+//   'Captain A.',
+//   'Spiderman',
+//   'Captain M.',
+// ]
+// function findLongestWord(param) {
+//   let longestWord = ''
+//   for (let i = 0; i < param.length; i++) {
+//     if (param[i].length > longestWord.length) {
+//       longestWord = param[i]
+//     }
+//   }
+//   return longestWord
+// }
+// console.log(findLongestWord(avengers))
 
 //! EJERCICIO 9:
 //* Calcular una suma puede ser tan simple como iterar sobre un array y sumar cada uno de los elementos. Implementa la función denominada sumAll que toma un array de números como argumento y devuelve la suma de todos los números de la matriz. Puedes usar este array para probar tu función:
 
-const numbers = [1, 2, 3, 5, 45, 37, 58]
+// const numbers = [1, 2, 3, 5, 45, 37, 58]
 
-function sumAll(param) {
-  totalSum = 0
-  for (let i = 0; i < param.length; i++) {
-    totalSum += param[i]
-  }
-  return totalSum
-}
-console.log(sumAll(numbers))
+// function sumAll(param) {
+//   totalSum = 0
+//   for (let i = 0; i < param.length; i++) {
+//     totalSum += param[i]
+//   }
+//   return totalSum
+// }
+// console.log(sumAll(numbers))
 
 //! EJERCICIO 10:
+
+//* Calcular un promedio (media) es una tarea extremadamente común. Puedes usar este array para probar tu función:
+
+// const numbers = [12, 21, 38, 5, 45, 37, 6]
+// function average(param) {
+//   let sum = 0
+//   for (let number of param) {
+//     sum += number
+//   }
+//   return sum / param.length
+// }
+// console.log(average(numbers))
+
+//! EJERCICIO 11:
+
+//* Calcular promedio de cadenas: Crea una función que recibe por parámetro un array y cuando es un valor number lo sume y de lo contrario cuente la longitud del string y lo sume. Puedes usar este array para probar tu función:pista (tipo de)
+
+const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub']
+function averageWord(param) {
+  let totalSum = 0
+
+  for (let element of param) {
+    if (typeof element === 'number') {
+      totalSum += element
+    } else if (typeof element === 'string') {
+      totalSum += element.length
+    }
+  }
+  return totalSum / param.length
+}
+console.log(averageWord(mixedElements))
