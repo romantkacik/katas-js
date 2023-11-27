@@ -246,17 +246,360 @@
 
 //* Calcular promedio de cadenas: Crea una función que recibe por parámetro un array y cuando es un valor number lo sume y de lo contrario cuente la longitud del string y lo sume. Puedes usar este array para probar tu función:pista (tipo de)
 
-const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub']
-function averageWord(param) {
-  let totalSum = 0
+// const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub']
+// function averageWord(param) {
+//   let totalSum = 0
 
-  for (let element of param) {
-    if (typeof element === 'number') {
-      totalSum += element
-    } else if (typeof element === 'string') {
-      totalSum += element.length
-    }
+//   for (let element of param) {
+//     if (typeof element === 'number') {
+//       totalSum += element
+//     } else if (typeof element === 'string') {
+//       totalSum += element.length
+//     }
+//   }
+//   return totalSum / param.length
+// }
+// console.log(averageWord(mixedElements))
+
+//! EJERCICIO 12:
+//* Valores únicos: Crea una función que recibe por parámetro un array y comprueba si existen elementos duplicados, en caso que existan los elimina para retornar un array sin los elementos duplicados. Puedes usar este array para probar tu función: pista (cuando eliminamos algo de un array, su longitud se verá afectada)
+
+// const duplicates = [
+//   'sushi',
+//   'pizza',
+//   'burger',
+//   'potatoe',
+//   'pasta',
+//   'ice-cream',
+//   'pizza',
+//   'chicken',
+//   'onion rings',
+//   'pasta',
+//   'soda',
+// ]
+// function removeDuplicates(param) {
+//   for (let i = 0; i < param.length; i++) {
+//     const primerPuntero = param[i]
+
+//     for (let j = i + 1; j < param.length; j++) {
+//       const segundoPuntero = param[j]
+
+//       if (primerPuntero === segundoPuntero) {
+//         param.splice(j, 1)
+//         j--
+//       }
+//     }
+//   }
+//   console.log(param)
+// }
+// console.log(removeDuplicates(duplicates))
+
+//! EJERCICIO 13:
+//* Buscador de nombres: Crea una función que recibe por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - comprueba si existe el elemento, en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un falso. Puedes usar este array para probar tu función:
+
+// const nameFinder = [
+//   'Peter',
+//   'Steve',
+//   'Tony',
+//   'Natasha',
+//   'Clint',
+//   'Logan',
+//   'Xabier',
+//   'Bruce',
+//   'Peggy',
+//   'Jessica',
+//   'Marc',
+// ]
+
+// function finderName(array, element) {
+//   if (array.includes(element)) {
+//     return `${true}, posicion: ${array.indexOf(element)}`
+//   } else {
+//     return false
+//   }
+// }
+
+// console.log(finderName(nameFinder, 'Peggy'))
+
+//------------------------------------------------------------------//
+
+// function finderName(array, element) {
+//   for (let i = 0; i < array.length; i++) {
+//       console.log(element);
+//       console.log(array[i]);
+//       if (element === array[i]) {
+//           return `${true}, posicion: ${i}`
+//       }
+//   }
+//   return false;
+// }
+
+// console.log(finderName(nameFinder, "Steve"))
+
+//! EJERCICIO 14:
+
+//* Contador de repeticiones: Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma. Puedes usar este array para probar tu función:
+
+// const counterWords = [
+//   'code',
+//   'repeat',
+//   'eat',
+//   'sleep',
+//   'code',
+//   'enjoy',
+//   'sleep',
+//   'code',
+//   'enjoy',
+//   'upgrade',
+//   'code',
+// ]
+// function repeatCounter(array) {
+//   const count = {}
+//   for (let i = 0; i < array.length; i++) {
+//     if (count[array[i]] >= 1) {
+//       count[array[i]]++
+//     } else {
+//       count[array[i]] = 1
+//     }
+//   }
+//   console.log(count)
+// }
+// repeatCounter(counterWords)
+
+//! EJERCICIO 15:
+
+//* Usa includes: Haz un bucle y muestra por consola todos aquellos valores del array que incluyan la palabra "Camiseta". Usa la función .includes de javascript.
+
+// const products = [
+//   'Camiseta de Pokemon',
+//   'Pantalón coquinero',
+//   'Gorra de gansta',
+//   'Camiseta de Basket',
+//   'Cinrurón de Orión',
+//   'AC/DC Camiseta',
+// ]
+
+// for (let i = 0; i < products.length; i++) {
+//   if (products[i].includes('Camiseta')) {
+//     console.log(products[i])
+//   }
+// }
+
+//! EJERCICIO 16:
+
+//* Probando For...of: Usa un bucle forof para recorrer todos los destinos del array. Imprime en un console.log sus valores. Puedes usar este array:
+
+// const placesToTravel = [
+//   'Japon',
+//   'Venecia',
+//   'Murcia',
+//   'Santander',
+//   'Filipinas',
+//   'Madagascar',
+// ]
+// for (const places of placesToTravel) {
+//   console.log(places)
+// }
+
+//! EJERCICIO 17:
+
+//* Probando For...in: Usa un for...in para imprimir por consola los datos del alienígena.. Puedes usar este objeto:
+
+// const alien = {
+//   name: 'Wormuck',
+//   race: 'Cucusumusu',
+//   planet: 'Eden',
+//   weight: '259kg',
+// }
+// for (const key in alien) {
+//   console.log(alien[key])
+// }
+
+//! EJERCICIO 18:
+
+//* Probando For: Usa un bucle for para recorrer todos los destinos del array y elimina los elementos que tengan el id 11 y 40. Imprime en un console log el array. Puedes usar este array:
+
+// const placesToTravel = [
+//   { id: 5, name: 'Japan' },
+//   { id: 11, name: 'Venecia' },
+//   { id: 23, name: 'Murcia' },
+//   { id: 40, name: 'Santander' },
+//   { id: 44, name: 'Filipinas' },
+//   { id: 59, name: 'Madagascar' },
+// ]
+
+// for (let i = 0; i < placesToTravel.length; i++) {
+//   if (placesToTravel[i].id === 11 || placesToTravel[i].id === 40) {
+//     placesToTravel.splice(i, 1)
+//   }
+// }
+// console.log(placesToTravel)
+
+//! EJERCICIO 19:
+
+//* Mixed For e includes: Usa un bucle for para recorrer todos los juguetes y elimina los que incluyan la palabra gato. Recuerda que puedes usar la función .includes() para comprobarlo. Puedes usar este array:
+
+// const toys = [
+//   { id: 5, name: 'Buzz MyYear' },
+//   { id: 11, name: 'Action Woman' },
+//   { id: 23, name: 'Barbie Man' },
+//   { id: 40, name: 'El gato con Guantes' },
+//   { id: 40, name: 'El gato felix' },
+// ]
+
+// for (let i = 0; i < toys.length; i++) {
+//   if (toys[i].name.includes('gato')) {
+//     toys.splice(i, 1), i--
+//   }
+// }
+// console.log(toys)
+
+//! EJERCICIO 20:
+
+//* For...of avanzado: Usa un bucle for...of para recorrer todos los juguetes y añade los que tengan más de 15 ventas (sellCount) al array popularToys. Imprimelo por consola.. Puedes usar este array:
+
+// const popularToys = []
+// const toys = [
+//   { id: 5, name: 'Buzz MyYear', sellCount: 10 },
+//   { id: 11, name: 'Action Woman', sellCount: 24 },
+//   { id: 23, name: 'Barbie Man', sellCount: 15 },
+//   { id: 40, name: 'El gato con Guantes', sellCount: 8 },
+//   { id: 40, name: 'El gato felix', sellCount: 35 },
+// ]
+// for (let toy of toys) {
+//   if (toy.sellCount > 15) {
+//     popularToys.push(toy)
+//   }
+// }
+// console.log(popularToys)
+
+//! EJERCICIO 21:
+
+//*Usa un bucle y dos condiciones para imprimir por consola el nombre de los usuarios que sean menor de edad precedidos del texto "Usuarios menores de edad:" y otro que imprima a los usuarios mayores de edad, precedido del texto "Usuarios mayores de edad:".
+
+// const users = [
+//   { name: 'Tony', years: 43 },
+//   { name: 'Peter', years: 18 },
+//   { name: 'Natasha', years: 14 },
+//   { name: 'Bruce', years: 32 },
+//   { name: 'Khamala', years: 16 },
+// ]
+
+// const mayores = []
+// const menores = []
+// for (user of users) {
+//   if (user.years < 18) {
+//     menores.push(user)
+//   }
+//   if (user.years >= 18) {
+//     mayores.push(user)
+//   }
+// }
+// console.log('usuarios menores', menores)
+// console.log('usuarios mayores', mayores)
+
+//! EJERCICIO 22:
+
+//* Usa un for para remplazar todas las comidas que no sean veganas con las frutas del array de frutas. Recuerda no usar frutas duplicadas. Finalmente, imprime el array resultante.
+
+// const fruits = ['Strawberry', 'Banana', 'Orange', 'Apple']
+// const foodSchedule = [
+//   { name: 'Heura', isVegan: true },
+//   { name: 'Salmon', isVegan: false },
+//   { name: 'Tofu', isVegan: true },
+//   { name: 'Burger', isVegan: false },
+//   { name: 'Rice', isVegan: true },
+//   { name: 'Pasta', isVegan: true },
+// ]
+
+// for (let i = 0; i < foodSchedule.length; i++) {
+//   if (foodSchedule[i].isVegan === false) {
+//     foodSchedule[i].name = fruits.shift()
+//     foodSchedule[i].isVegan = true
+//   }
+// }
+// console.log(foodSchedule)
+
+//! EJERCICIO 23:
+
+//* Usa un bucle para crear 3 arrays de peliculas filtrados por categorias. Pelicula pequeña, menos de 100 minutos, pelicula mediana, mas de 100 minutos y menos de 200 y pelicula grande, mas de 200 minutos. Imprime cada array en por consola.
+
+// const movies = [
+//   { name: 'Titan A.E.', durationInMinutes: 130 },
+//   { name: 'Nightmare before Christmas', durationInMinutes: 225 },
+//   { name: 'Inception', durationInMinutes: 165 },
+//   { name: 'The Lord of the Rings', durationInMinutes: 967 },
+//   { name: 'Star Wars: A New Hope', durationInMinutes: 214 },
+//   { name: 'Terminator', durationInMinutes: 140 },
+//   { name: 'Cortometraje', durationInMinutes: 60 },
+// ]
+
+// let shortFilm = []
+// let mediumFilm = []
+// let largeFilm = []
+
+// for (let i = 0; i < movies.length; i++) {
+//   if (movies[i].durationInMinutes < 100) {
+//     shortFilm.push(movies[i])
+//   } else if (movies[i].durationInMinutes > 200) {
+//     largeFilm.push(movies[i])
+//   } else {
+//     mediumFilm.push(movies[i])
+//   }
+// }
+// console.log(shortFilm)
+// console.log(mediumFilm)
+// console.log(largeFilm)
+
+//! EJERCICIO 24:
+
+//* Usa un bucle para sumar el total de las ventas (sellCount) de todos los productos.
+
+// const products = [
+//   { name: 'Funko Dr. Strange', sellCount: 10 },
+//   { name: 'Mochila de protones: Ghostbusters', sellCount: 302 },
+//   { name: 'Sable laser FX', sellCount: 23 },
+//   { name: 'Varita de Voldemort', sellCount: 6 },
+// ]
+// let totalSell = 0
+// for (let i = 0; i < products.length; i++) {
+//   totalSell += products[i].sellCount
+// }
+// console.log(totalSell)
+
+//! EJERCICIO 25:
+//* Usa un bucle para sumar el total de las ventas (sellCount) de todos los productos y mostrar por consola la media de ventas.
+
+// const products = [
+//   { name: 'Funko Dr. Strange', sellCount: 10 },
+//   { name: 'Mochila de protones: Ghostbusters', sellCount: 302 },
+//   { name: 'Sable laser FX', sellCount: 23 },
+//   { name: 'Varita de Voldemort', sellCount: 6 },
+// ]
+// let totalSell = 0
+// for (let i = 0; i < products.length; i++) {
+//   totalSell += products[i].sellCount
+// }
+// console.log(totalSell / products.length)
+
+//! EJERCICIO 26:
+//* Usa un bucle para recorrer el array de productos (products) y añade al array goodProducts los que tengan más de 20 ventas (sellCount) y al array badProducts los que tengan menos.
+
+const goodProducts = []
+const badProducts = []
+const products = [
+  { name: 'Funko Dr. Strange', sellCount: 10 },
+  { name: 'Mochila de protones: Ghostbusters', sellCount: 302 },
+  { name: 'Sable laser FX', sellCount: 23 },
+  { name: 'Varita de Voldemort', sellCount: 6 },
+]
+
+for (let i = 0; i < products.length; i++) {
+  if (products[i].sellCount > 20) {
+    goodProducts.push(products[i])
+  } else {
+    badProducts.push(products[i])
   }
-  return totalSum / param.length
 }
-console.log(averageWord(mixedElements))
+console.log(goodProducts)
+console.log(badProducts)
